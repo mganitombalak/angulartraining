@@ -1,4 +1,5 @@
 <span *ngIf="!model">There is no data</span>
 <ul *ngFor="let menuItem of model" class="list-group">
-    <li appHover class="list-group-item">{{menuItem.title}}</li>
+    <a routerLink="{{menuItem.url}}"><li appHover class="list-group-item">{{menuItem.title}}</li>
+</a>
 </ul>
