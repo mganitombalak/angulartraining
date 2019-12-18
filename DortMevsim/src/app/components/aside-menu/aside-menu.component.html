@@ -1,7 +1,4 @@
-<ul class="list-group">
-    <li appHover class="list-group-item">Kategoriler</li>
-    <li appHover class="list-group-item">KMH</li>
-    <li appHover class="list-group-item">Kredi Kartlar</li>
-    <li appHover class="list-group-item">Imece</li>
-    <li appHover class="list-group-item">Iklim</li>
-  </ul>
+<span *ngIf="!model">There is no data</span>
+<ul *ngFor="let menuItem of model" class="list-group">
+    <li appHover class="list-group-item">{{menuItem.title}}</li>
+</ul>

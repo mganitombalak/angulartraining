@@ -7,7 +7,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { AsideMenuComponent } from './components/aside-menu/aside-menu.component';
 import { HoverDirective } from './core/directives/hover.directive';
 import { DropdownMenuDirective } from './core/directives/dropdown-menu.directive';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './core/interceptors/token-interceptor';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -15,14 +17,21 @@ import {HttpClientModule} from '@angular/common/http';
     HeaderComponent,
     AsideMenuComponent,
     HoverDirective,
-    DropdownMenuDirective
+    DropdownMenuDirective,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
