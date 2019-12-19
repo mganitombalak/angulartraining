@@ -10,6 +10,7 @@ import { DropdownMenuDirective } from './core/directives/dropdown-menu.directive
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './core/interceptors/token-interceptor';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ModalHostDirective } from './core/directives/modal-host.directive';
 
 @NgModule({
   declarations: [

@@ -3,6 +3,8 @@ import { CategoryService } from '../../services/category.service';
 import { ICategory } from 'src/app/core/models/ICategory';
 import { take } from 'rxjs/operators';
 import { GridCellComponent } from 'src/app/modules/shared/components/grid-cell/grid-cell.component';
+import { ModalService } from 'src/app/modules/shared/services/modal.service';
+import { CategoryUpsertComponent } from '../category-upsert/category-upsert.component';
 
 @Component({
   selector: 'app-category-list',
@@ -19,7 +21,7 @@ export class CategoryListComponent implements OnInit, AfterViewInit {
 
   rowData: Array<ICategory>;
   context: any;
-  constructor(private categoryService: CategoryService) { }
+  constructor(private categoryService: CategoryService, private modalService: ModalService) { }
 
   ngOnInit() {
     this.context = { componentParent: this };
@@ -29,7 +31,12 @@ export class CategoryListComponent implements OnInit, AfterViewInit {
   }
 
   onEditClicked(data: ICategory): void {
-    console.log(`${data.name} is editing`);
+    this.modalService.open({
+      title: `Edit ${data.name}`,
+      activeComponent: CategoryUpsertComponent,
+      componentMode: ComponentMode.Read,
+      data: null
+    });
   }
   onDeleteClicked(data: ICategory): void {
     console.log(`${data.name} is deleting`);

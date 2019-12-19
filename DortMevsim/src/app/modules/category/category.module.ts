@@ -7,15 +7,17 @@ import { AgGridModule } from 'ag-grid-angular';
 import { CategoryService } from './services/category.service';
 import { SharedModule } from '../shared/shared.module';
 import { GridCellComponent } from '../shared/components/grid-cell/grid-cell.component';
+import { CategoryUpsertComponent } from './components/category-upsert/category-upsert.component';
 
 @NgModule({
-  declarations: [CategoryListComponent],
+  declarations: [CategoryListComponent, CategoryUpsertComponent],
   imports: [
     CommonModule,
     CategoryRoutingModule,
     SharedModule,
     AgGridModule.withComponents([GridCellComponent])
   ],
-  providers: [CategoryService]
+  providers: [CategoryService],
+  entryComponents: [CategoryUpsertComponent]
 })
 export class CategoryModule { }
