@@ -9,7 +9,6 @@ export class MenuService {
   constructor(private httpClient: HttpClient) { }
 
   findAll(): Array<IMenuItem> { // Observable<IResponse<IMenuItem>> {
-    return [{ title: 'Kategori', url: '/category' },
-    { title: 'Birimler', url: '/units' }]; // this.httpClient.get('menu') as Observable<IResponse<IMenuItem>>;
+    return [{ title: 'Kategori', url: '/category' },{ title: 'Birimler', url: '/units' }]; // this.httpClient.get('menu') as Observable<IResponse<IMenuItem>>;
   }
 }

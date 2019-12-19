@@ -11,6 +11,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './core/interceptors/token-interceptor';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ModalHostDirective } from './core/directives/modal-host.directive';
+import { ArrayCheckPipe } from './core/pipes/array-check.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ModalHostDirective } from './core/directives/modal-host.directive';
     AsideMenuComponent,
     HoverDirective,
     DropdownMenuDirective,
-    DashboardComponent
+    DashboardComponent,
+    ArrayCheckPipe
   ],
   imports: [
     BrowserModule,
