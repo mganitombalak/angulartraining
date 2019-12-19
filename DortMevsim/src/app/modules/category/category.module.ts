@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { CategoryRoutingModule } from './category-routing.module';
 import { CategoryListComponent } from './components/category-list/category-list.component';
@@ -12,7 +11,6 @@ import { CategoryUpsertComponent } from './components/category-upsert/category-u
 @NgModule({
   declarations: [CategoryListComponent, CategoryUpsertComponent],
   imports: [
-    CommonModule,
     CategoryRoutingModule,
     SharedModule,
     AgGridModule.withComponents([GridCellComponent])

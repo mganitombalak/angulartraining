@@ -1,1 +1,68 @@
-<p>category-upsert works!</p>
+<form *ngIf="componentMode===0 || componentMode===2" (ngSubmit)="onSubmit()" #upsertForm="ngForm"
+  class="m-form m-form--state m-form--fit m-form--label-align-right">
+  <div class="form-group m-form__group">
+    <label for="name">Kategori Adı</label>
+    <input type="text" class="form-control m-input" name="name" placeholder="Marka Adı"
+      [(ngModel)]="model.name" required>
+    <span class="m-form__help">Örneğin: Jacket, Suit, Knitwear gibi </span>
+  </div>
+  <div class="form-group m-form__group">
+    <label for="displayOrder">Görüntülenme Sırası</label>
+    <input type="number" min="0" class="form-control m-input" name="displayOrder"  placeholder="Görüntülenme Sırası" 
+      [(ngModel)]="model.displayOrder">
+    <span class="m-form__help">Örneğin: 5 gibi</span>
+  </div>
+  <div class="m-portlet__foot m-portlet__foot--fit">
+    <div class="row m-form__actions">
+      <div class="col m--align-right">
+        <button type="submit" [disabled]="!upsertForm.valid" class="btn"
+          [ngClass]="{'btn-success':upsertForm.valid,'btn-danger':!upsertForm.valid}">{{actionButtonText}}</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<form *ngIf="componentMode===3" (ngSubmit)="onSubmit()" #deleteForm="ngForm">
+  <div class="form-group m-form__group m--margin-top-10">
+    <div class="alert m-alert m-alert--default" role="alert">
+      Aşağıda detayları gösterilen veriyi silmek istediğinizden emin misiniz?
+    </div>
+  </div>
+  <div class="m-form__section m-form__section--first">
+    <div class="form-group m-form__group m-form__group--sm row">
+      <label class="col-xl-4 col-lg-4 col-form-label">Kategori Adı:</label>
+      <div class="col-xl-8 col-lg-8">
+        <span class="m-form__control-static">{{model.name}}</span>
+      </div>
+    </div>
+    <div class="form-group m-form__group m-form__group--sm row">
+      <label class="col-xl-4 col-lg-4 col-form-label">Gösterim Sırası:</label>
+      <div class="col-xl-8 col-lg-8">
+        <span class="m-form__control-static">{{model.displayOrder}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="m-portlet__foot m-portlet__foot--fit">
+    <div class="row m-form__actions">
+      <div class="col m--align-right">
+        <button type="submit" class="btn btn-danger">{{actionButtonText}}</button>
+      </div>
+    </div>
+  </div>
+</form>
+<ng-container *ngIf="componentMode===1">
+  <div class="m-form__section m-form__section--first">
+    <div class="form-group m-form__group m-form__group--sm row">
+      <label class="col-xl-4 col-lg-4 col-form-label">Kategori Adı:</label>
+      <div class="col-xl-8 col-lg-8">
+        <span class="m-form__control-static">{{model.name}}</span>
+      </div>
+    </div>
+    <div class="form-group m-form__group m-form__group--sm row">
+      <label class="col-xl-4 col-lg-4 col-form-label">Gösterim Sırası:</label>
+      <div class="col-xl-8 col-lg-8">
+        <span class="m-form__control-static">{{model.displayOrder}}</span>
+      </div>
+    </div>
+  </div>
+</ng-container>

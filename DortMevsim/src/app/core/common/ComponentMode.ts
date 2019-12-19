@@ -1,6 +1,7 @@
-const enum ComponentMode{
+const enum ComponentMode {
+    Insert,
     Read,
     Edit,
-    Update,
     Delete
-}
+  }
+  

@@ -30,12 +30,12 @@ export class CategoryListComponent implements OnInit, AfterViewInit {
     this.categoryService.findAll().pipe(take(1)).subscribe(r => this.rowData = r.data);
   }
 
-  onEditClicked(data: ICategory): void {
+  onEditClicked(obj: ICategory): void {
     this.modalService.open({
-      title: `Edit ${data.name}`,
+      title: `Edit ${obj.name}`,
       activeComponent: CategoryUpsertComponent,
-      componentMode: ComponentMode.Read,
-      data: null
+      componentMode: ComponentMode.Edit,
+      data: obj
     });
   }
   onDeleteClicked(data: ICategory): void {
