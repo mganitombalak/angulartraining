@@ -12,6 +12,8 @@ import { TokenInterceptor } from './core/interceptors/token-interceptor';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ModalHostDirective } from './core/directives/modal-host.directive';
 import { ArrayCheckPipe } from './core/pipes/array-check.pipe';
+import { AuthModule } from './modules/auth/auth.module';
+import { AuthGuard } from './modules/auth/guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,13 @@ import { ArrayCheckPipe } from './core/pipes/array-check.pipe';
     HoverDirective,
     DropdownMenuDirective,
     DashboardComponent,
-    ArrayCheckPipe
+    ArrayCheckPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthModule
   ],
   providers: [
     {
